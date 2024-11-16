@@ -15,5 +15,6 @@ main = main' =<< execParser opts
      <> header "kuh - QR code generator" )
 
 main' :: CliArgs -> IO ()
-main' args = renderSVG "test.svg" (dims2D d d) (renderMatrix testMatrix)
-  where d = dim args
+main' args = r "test.svg" (dims2D d d) (renderMatrix testMatrix)
+  where r = if prettySvg args then renderPretty else renderSVG
+        d = dim args
