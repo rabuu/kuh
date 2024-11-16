@@ -1,7 +1,7 @@
 module Main (main) where
 
 import qualified CLI
-import Lib
+import Kuh.Matrix
 
 import Options.Applicative
 import Diagrams.Prelude

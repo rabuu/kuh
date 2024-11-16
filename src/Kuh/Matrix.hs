@@ -1,9 +1,9 @@
-module Lib (testMatrix, renderMatrix) where
+module Kuh.Matrix (Matrix, renderMatrix, testMatrix) where
 
-import Data.List.Split
+import Data.List.Split (chunksOf)
 
 import Diagrams.Prelude
-import Diagrams.Backend.SVG
+import Diagrams.Backend.SVG (B)
 
 data Matrix = Matrix
   { dim  :: Int
