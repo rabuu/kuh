@@ -1,17 +1,23 @@
-module CLI (CliArgs(..), cliParser) where
+module CLI (Args(..), cliParser) where
 
 import Options.Applicative
 
-data CliArgs = Args
+data Args = Args
   { text :: String
-  , dim :: Double
+  , outputFile :: String
+  , dimension :: Double
   , prettySvg :: Bool }
 
-cliParser :: Parser CliArgs
+cliParser :: Parser Args
 cliParser = Args
       <$> argument str
           ( metavar "TEXT"
          <> help "Input text" )
+      <*> strOption
+          ( metavar "OUTPUT"
+         <> long "output"
+         <> short 'o'
+         <> help "Output file" )
       <*> option auto
           ( metavar "DIMENSION"
          <> long "dim"
