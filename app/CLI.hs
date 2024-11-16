@@ -1,17 +1,20 @@
 module CLI (CliArgs(..), cliParser) where
 
-import Options.Applicative (Parser, argument, str, metavar, help, long, short, switch)
+import Options.Applicative
 
 data CliArgs = Args
   { text :: String
-  , test :: Bool }
+  , dim  :: Double }
 
 cliParser :: Parser CliArgs
 cliParser = Args
       <$> argument str
           ( metavar "TEXT"
          <> help "Input text" )
-      <*> switch
-          ( long "test"
-         <> short 't'
-         <> help "test test test" )
+      <*> option auto
+          ( metavar "DIMENSION"
+         <> long "dim"
+         <> short 'd'
+         <> showDefault
+         <> value 400
+         <> help "Height and width of the output image" )
