@@ -1,4 +1,4 @@
-module Kuh (Version, mkVersion, versionDim, ErrorCorrectionLevel, DataMode) where
+module Kuh (Version, mkVersion, versionDim, ErrorCorrectionLevel(..), DataMode(..)) where
 
 -- | QR code version (1-40) that corresponds to the size
 newtype Version = Version Int
