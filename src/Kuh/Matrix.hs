@@ -8,6 +8,7 @@ import Diagrams.Backend.SVG (B)
 data Matrix = Matrix
   { dim  :: Int
   , bits :: [Bool] }
+  deriving Show
 
 testMatrix :: Matrix
 testMatrix = Matrix
