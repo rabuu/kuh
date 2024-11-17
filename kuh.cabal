@@ -26,6 +26,7 @@ library
   exposed-modules:
       Kuh
       Kuh.DataAnalysis
+      Kuh.Encoding
       Kuh.Matrix
   other-modules:
       Paths_kuh
