@@ -25,6 +25,7 @@ source-repository head
 library
   exposed-modules:
       Kuh
+      Kuh.DataAnalysis
       Kuh.Matrix
   other-modules:
       Paths_kuh
