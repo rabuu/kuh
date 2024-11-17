@@ -18,3 +18,7 @@ alphanumericTable = ['0'..'9'] ++ ['A'..'Z'] ++ " $%*+-./:"
 
 isAlphanumeric :: String -> Bool
 isAlphanumeric = all (`elem` alphanumericTable)
+
+-- TODO: determine best version
+-- capacity :: ErrorCorrectionLevel -> Version -> Int
+-- capacity errLvl version = undefined
