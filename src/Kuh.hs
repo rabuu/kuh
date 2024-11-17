@@ -1,4 +1,4 @@
-module Kuh (Version, mkVersion, versionDim, ErrorCorrectionLevel(..), DataMode(..)) where
+module Kuh (Version, mkVersion, versionDim, ErrorCorrectionLevel(..), DataMode(..), modeIndicator) where
 
 -- | QR code version (1-40) that corresponds to the size
 newtype Version = Version Int
@@ -19,5 +19,12 @@ data ErrorCorrectionLevel = L | M | Q | H
   deriving Show
 
 -- | Data mode that corresponds to the type of data the code contains
-data DataMode = Numeric | Alphanumeric | Binary | Kanji
+data DataMode = Numeric | Alphanumeric | Binary | Kanji | ECI
   deriving Show
+
+modeIndicator :: DataMode -> [Bool]
+modeIndicator Numeric = [False, False, False, True]
+modeIndicator Alphanumeric = [False, False, True, False]
+modeIndicator Binary = [False, True, False, False]
+modeIndicator Kanji = [True, False, False, False]
+modeIndicator ECI = [False, True, True, True]
